@@ -5,10 +5,10 @@
   "repository": "https://github.com/yangting11/ylproject.git",
   "author": "yangting <2019048627@qq.com>",
   "license": "MIT",
-  "scripts":{
-    "dev":"node_modules/.bin/webpack-dev-server --open",
-    "dist":"node_module/.bin/webpack",
-    "start":"node_module/.bin/webpack -p"
+  "scripts": {
+    "dev": "node_modules/.bin/webpack-dev-server --open",
+    "dist": "node_module/.bin/webpack",
+    "start": "node_module/.bin/webpack -p"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -29,6 +29,7 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "react-router-dom": "^4.3.1"
   }
 }
