@@ -1,18 +1,41 @@
-// console.log('yt')
-// let yt = 18;
-// let test = ()=>{
-//     return yt+2
-// }
-// test(yt);
 import React from 'react'
 import ReactDOM from 'react-dom'
-import 'font-awesome/css/font-awesome.min.css'
-import './index.css'
-import './index.scss'
+import {BrowserRouter as Router, Route,Link,Switch,Redirect} from 'react-router-dom'
+import Home from 'page/home/index.jsx';
+import Edit from 'page/edit/index.jsx';
+import Layout from 'components/layout/index.jsx'
+import 'components/layout/theme.css'
+import Login from 'page/login/Login.jsx'
+class App extends React.Component{
+    render(){
+        return (
+            <div>
+                <Router>
+                    <Switch>
+                        <Route exact path="/login" component={Login}></Route>
+                        {/*用逻辑判断使用什么组件*/}
+                        <Route path="/" render={(props)=>(
+                                <Layout>
+                                    <Switch>
+                                        <Route exact path="/" component={Home}></Route>
+                                        <Route exact path="/edit" component={Edit}></Route>
+                                    </Switch>
+                                </Layout>
+                            )
+                        }>   
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
+        )
+    }
+}
+
 ReactDOM.render(
-    <div>
-        <i className="fa fa-address-book"></i>
-        <div>11111111111111</div>
-    </div>
-    ,document.getElementById('app')
+    <App/>,
+    document.getElementById('app')
 )
+
+
+
+

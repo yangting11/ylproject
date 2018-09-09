@@ -9,10 +9,17 @@ module.exports={
         publicPath:'/dist/',
         filename:'js/app.js'
     },
+    resolve:{
+        alias:{
+            page:path.resolve(__dirname,'src/page'),
+            components:path.resolve(__dirname,'src/components')
+        }
+    },
     plugins:[
         //处理html文件
         new HtmlWebpackPlugin({
             template:'./src/index.html'
+            // favicon:'./favicon.ico' //这里放的是favicon的地址
         }), //安装html-webpack-plugin --dev
         //独立css文件
         new ExtractTextPlugin('css/[name].css'),
@@ -86,7 +93,16 @@ module.exports={
     ]
     },
     devServer:{
-        port:8686
+        port:8686,
+        historyApiFallback:{
+            index:'/dist/index.html'
+        },
+        proxy:{
+            '/manage':{
+                target:'http://admintest.happymmall.com',
+                changeOrigin:true
+            }
+        }
     }
 
 }
